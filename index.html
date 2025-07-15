@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sentiment Analyzer</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🧠 Sentiment Prediction</h1>
+        <form method="POST" action="/predict">
+            <textarea name="text" placeholder="Type something emotional..." required></textarea>
+            <br>
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if prediction %}
+        <div class="result">
+            <p><strong>Text:</strong> {{ text }}</p>
+            <p><strong>Prediction:</strong> {{ prediction }}</p>
+            <p><strong>Confidence:</strong> {{ confidence * 100 }}%</p>
+            <p><strong>Random Emoji:</strong> {{ emoji }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
